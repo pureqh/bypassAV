@@ -3,7 +3,7 @@
 ## 原理
 https://pureqh.top/?p=5412
 ## use
-将shellcode填至go_shellcode_encode.py生成混淆后的base64 payload<br>
-然后将生成的payload填至main.go build("b64shellcode")<br>
-将main.go中的url替换为你vbs的某个网页或文本（局域网网页同样可以，但是需要程序可以正常使用时此网页需要可以访问）<br>
-编译：go build -ldflags="-w -s -H=windowsgui"<br>
+1.将shellcode填至go_shellcode_encode.py生成混淆后的base64 payload<br>
+2.然后将生成的payload填至main.go build("b64shellcode")<br>
+3.将main.go中的url替换为你vbs的某个网页或文本（局域网网页同样可以，但是需要程序可以正常使用时此网页需要可以访问）<br>
+4.编译：go build -ldflags="-w -s -H=windowsgui"<br>
